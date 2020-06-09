@@ -70,7 +70,7 @@ $ yarn ss
   }
   ```
 - 9.pm2 管理上线的 server
-
+  [难点问题](https://github.com/Unitech/pm2/issues/325)
   ```javascript
     "ss": "cross-env PORT=10010 yarn install&&yarn build&& pm2 start npm --only --name 'nuxt-base' -i 2 -- run start"
   ```
