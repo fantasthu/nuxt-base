@@ -1,0 +1,52 @@
+{
+  "name": "nuxt-base3",
+  "version": "1.0.0",
+  "description": "My perfect Nuxt.js project",
+  "author": "velo",
+  "private": true,
+  "scripts": {
+    "dev": "cross-env PORT=10010 BASE_URL=https://easydoc.xyz/mock/HufGDEWT/p/13918804 NODE_ENV=development nodemon server/index.js --watch server",
+    "build": "cross-env BASE_URL=https://google/api nuxt build",
+    "start": "cross-env PORT=10010 BASE_URL=https://google/api NODE_ENV=production node server/index.js",
+    "generate": "cross-env BASE_URL=https://google/api nuxt generate",
+    "ss": "cross-env PORT=10010 yarn install&&yarn build&&pm2 delete -s nuxt-base ||: &&pm2 start npm  --name 'nuxt-base' -i 2 -- run start"
+  },
+  "lint-staged": {
+    "*.{js,vue}": "yarn lint",
+    "*.{css,vue}": "stylelint"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "dependencies": {
+    "@nuxtjs/pwa": "^3.0.0-0",
+    "axios": "^0.19.2",
+    "cross-env": "^7.0.2",
+    "koa": "^2.6.2",
+    "nuxt": "^2.0.0"
+  },
+  "devDependencies": {
+    "@nuxtjs/eslint-config": "^2.0.0",
+    "@nuxtjs/eslint-module": "^1.0.0",
+    "@nuxtjs/stylelint-module": "^3.1.0",
+    "autoprefixer": "^9.8.0",
+    "babel-eslint": "^10.0.1",
+    "eslint": "^6.1.0",
+    "eslint-config-prettier": "^6.10.0",
+    "eslint-plugin-nuxt": ">=0.4.2",
+    "eslint-plugin-prettier": "^3.1.2",
+    "happypack": "^5.0.1",
+    "husky": "^4.0.0",
+    "lint-staged": "^10.0.0",
+    "node-sass": "^4.14.1",
+    "nodemon": "^1.18.9",
+    "postcss-aspect-ratio-mini": "^1.1.0",
+    "postcss-cssnext": "^3.1.0",
+    "postcss-px-to-viewport": "^1.1.1",
+    "prettier": "^1.19.1",
+    "sass-loader": "^8.0.2",
+    "stylelint": "^10.1.0"
+  }
+}

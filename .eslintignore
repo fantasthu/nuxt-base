@@ -1,0 +1,5 @@
+assets/**
+static/**
+.nuxt
+dist/
+!.eslintrc.js
