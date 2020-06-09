@@ -1,20 +1,12 @@
 <template>
-    <div class="f-vcc">
-      {{ title }}
-      <logo />
-      <h1 class="title">nuxt-base</h1>
-      <h2 class="subtitle">nuxt-base 基础的nuxt工具</h2>
-      <div class="links">
-        <a href="https://nuxtjs.org/" target="_blank" class="button--green"
-          >Documentation</a
-        >
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          class="button--grey"
-          >GitHub</a
-        >
-      </div>
+  <div class="f-vcc">
+    {{ title }}
+    <logo />
+    <h1 class="title">nuxt-base</h1>
+    <h2 class="subtitle">nuxt-base 基础的nuxt工具</h2>
+    <div class="links">
+      <a href="https://nuxtjs.org/" target="_blank" class="button--green">Documentation</a>
+      <a href="https://github.com/nuxt/nuxt.js" target="_blank" class="button--grey">GitHub</a>
     </div>
   </div>
 </template>
@@ -25,25 +17,23 @@ import Logo from '~/components/Logo.vue'
 import API from '~/api/index.js'
 export default {
   components: {
-    Logo,
+    Logo
   },
   props: {},
   async fetch({ store, params }) {
     await store.commit('skeleton/UPDATE_LOADING', true)
   },
   async asyncData({ store, params, query, req, res, redirect, error }) {
-    await API.getName({}).then((_) => {
-      console.log('_')
+    const data = await API.getName({}).then((_) => {
+      console.log('_', _)
       store.commit('skeleton/UPDATE_LOADING', false)
     })
-    // await sleep(2000)
     return {
-      fetch: false
-      // mydata: data
+      data
     }
   },
   data() {
-    return { fetch: false }
+    return {}
   },
   computed: {
     ...mapState(['title'])
@@ -51,10 +41,8 @@ export default {
   watch: {},
   created() {},
   mounted() {
-    setTimeout(() => {
-      this.fetch = true
-    }, 3000)
-    console.log('this.muname')
+    const title = this.$fan('.title')
+    console.log('title', title)
   },
   head() {
     return {

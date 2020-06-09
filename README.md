@@ -82,7 +82,7 @@ $ yarn ss
 - 12.使用 vue-content-loading svg 组件为基础建立的 skeleton
 
 ## 注意事项
-
+- 有时候yarn dev开启的服务会一直loading,这时候考虑unregister控制台里面的application中pwa应用
 - .gitignore 配置不起作用的时候执行`git rm --cached .`
 
 - 在 `fetch` 中使用 store 一定要使用 async await 同步执行,否则不能及时获取到 `store` 中的数据
